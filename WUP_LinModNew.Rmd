@@ -152,3 +152,9 @@ anova_results = anova(model.1,model.3)
 print(anova_results)
 ```
 
+this shows they are less than 0.5
+```{r}
+anova_results = anova(model.2,model.3)
+print(anova_results)
+```
+these show they are less than 0.5
