@@ -63,7 +63,13 @@ model.1 shows that the intercept and coefficient of ARM are both
 significantly different from 0.
 
 #### Predict at target point
+```{r}
+targtPoint = data.frame(GRIP=94, ARM=88)
+predictInt = predict(model.1, targtPoint, interval = 'prediction')
+print(predictInt)
+```
 
+the ARM=88, GRIP=94 the predicted SIMS score is 0.706. 95% confidence interval for that score is SIMS between -1.73 and 3.19
 
 #### scatterplot with model fit
   
@@ -72,14 +78,37 @@ significantly different from 0.
 
 ### Now add in scatterplot
 
+```{r}
+plot(SIMS~GRIP,data=data)
+model.2=lm(SIMS~GRIP, data=data)
+abline(model.2)
+```
+
+This plot shows as the SIMS increases so does the GRIP strength which shows their is moderate positive correlation 
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+This shows that the correlation is 0.63 which shows the moderate positive correlation.
 
 ### Inferential  (Build model.2)
   
+```{r}
+summary.lm(model.2)
+```
+
+This shows that the coefficant is 0.04 and the Int is -4.8 which means they are both different from 0.
 
 #### predict model.2 at target point
+
+```{r}
+targtPoint = data.frame(GRIP=94, ARM=88)
+predictInt = predict(model.2, targtPoint, interval = 'prediction')
+print(predictInt)
+```
+the predicted SIMS score is -0.536. 95% confidence interval for that score is SIMS between -3.10 and 2.03
 
 #### now add the model fit to our plot for model.2
   
