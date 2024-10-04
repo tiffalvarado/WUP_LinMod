@@ -113,17 +113,32 @@ the predicted SIMS score is -0.536. 95% confidence interval for that score is SI
 #### now add the model fit to our plot for model.2
   
 
-
 ## Model 3 SIM~ARM+GRIP
+
+```{r}
+model.3 = lm(SIMS~ARM+GRIP, data=data)
+summary(model.3)
+```
+Both of these are signaficantly less than 0
 
 ### Numerical results (cor)
 
+```{r}
+
+cor(data)
+```
 `
-  
+ this shows sims correlate with grip and arm 
+ 
 ### Inferential  (Build 2-dimentional model.3)
 
 #### predict model.3 at target point
   
+```{r}
+predict(model.3, targtPoint,interval='prediction')
+```
+  
+
 
 ## Comparing nested models ANOVA Test
 
@@ -131,4 +146,9 @@ the predicted SIMS score is -0.536. 95% confidence interval for that score is SI
 ### Model.2 vs Model.3
 
 ## Informally compare Model.1 with model.2
+
+```{r}
+anova_results = anova(model.1,model.3)
+print(anova_results)
+```
 
