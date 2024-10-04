@@ -59,6 +59,9 @@ summary.lm(model.1)
 
 model.1 = lm
 
+model.1 shows that the intercept and coefficient of ARM are both  
+significantly different from 0.
+
 #### Predict at target point
 
 
